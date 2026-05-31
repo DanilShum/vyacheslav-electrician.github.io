@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проект — Айназ Ремонт</title>
+  <meta name="description" content="Примеры ремонта квартир в Казани. Портфолио выполненных работ компании Айназ Ремонт.">
+  <link rel="canonical" href="https://ainaz-remont.ru/project.html">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ainaz-remont.ru/project.html">
+  <meta property="og:title" content="Портфолио — Айназ Ремонт">
+  <meta property="og:description" content="Примеры ремонта квартир в Казани. Портфолио выполненных работ компании Айназ Ремонт.">
+  <meta property="og:image" content="https://ainaz-remont.ru/assets/room1.jpeg">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Портфолио — Айназ Ремонт">
+  <meta name="twitter:description" content="Примеры ремонта квартир в Казани.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.svg">
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">Айназ Ремонт</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html#hero" class="nav-link">Главная</a>
+        <a href="index.html#team" class="nav-link">Команда</a>
+        <a href="index.html#portfolio" class="nav-link">Портфолио</a>
+        <a href="index.html#contacts" class="nav-link">Контакты</a>
+      </nav>
+      <a href="tel:+79393868381" class="phone-link">
+        <span>+7 939 386 83 81</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="project-main">
+    <div class="project-container" id="projectContent"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <span class="footer-logo">Айназ Ремонт</span>
+          <p class="footer-tagline">Ремонт квартир под ключ в Казани</p>
+        </div>
+        <div class="footer-contacts">
+          <a href="tel:+79393868381" class="footer-phone">+7 939 386 83 81</a>
+          <span class="footer-address">г. Казань, Проспект Победы</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copyright" id="copyright"></span>
+        <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script>
+    function setCopyright() {
+      document.getElementById('copyright').textContent = `© ${new Date().getFullYear()} Айназ Ремонт. Все права защищены.`;
+    }
+
+    function initMenu() {
+      const toggle = document.getElementById('menuToggle');
+      const nav = document.getElementById('nav');
+      toggle.addEventListener('click', () => nav.classList.toggle('nav-open'));
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => nav.classList.remove('nav-open'));
+      });
+    }
+
+    function renderProject() {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get('id'));
+      const project = portfolio.find(p => p.id === id);
+
+      if (!project) {
+        document.getElementById('projectContent').innerHTML = '<p style="text-align:center;padding:100px 24px;">Проект не найден</p>';
+        return;
+      }
+
+      document.title = `${project.title} — Айназ Ремонт`;
+
+      const imagesHtml = project.images.map((img, i) => `
+        <div class="project-image ${i === 0 ? 'project-image-main' : ''}">
+          <img src="${img}" alt="${project.title} ${i + 1}">
+        </div>
+      `).join('');
+
+      document.getElementById('projectContent').innerHTML = `
+        <div class="project-header">
+          <a href="index.html#portfolio" class="project-back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Назад к портфолио
+          </a>
+          <h1 class="project-title">${project.title}</h1>
+          <p class="project-description">${project.description}</p>
+        </div>
+
+        <div class="project-info-grid">
+          <div class="project-info-item">
+            <span class="project-info-label">Площадь</span>
+            <span class="project-info-value">${project.area}</span>
+          </div>
+          <div class="project-info-item">
+            <span class="project-info-label">Срок</span>
+            <span class="project-info-value">${project.duration}</span>
+          </div>
+          <div class="project-info-item">
+            <span class="project-info-label">Стоимость</span>
+            <span class="project-info-value">${project.price}</span>
+          </div>
+          <div class="project-info-item">
+            <span class="project-info-label">Год</span>
+            <span class="project-info-value">${project.year}</span>
+          </div>
+        </div>
+
+        <div class="project-full-description">
+          <h2>О проекте</h2>
+          <p>${project.fullDescription}</p>
+        </div>
+
+        <div class="project-gallery">
+          ${imagesHtml}
+        </div>
+
+        <div class="project-cta">
+          <h2>Хотите такой же ремонт?</h2>
+          <p>Свяжитесь с нами для бесплатной консультации</p>
+          <a href="tel:+79393868381" class="hero-btn primary">Позвонить</a>
+        </div>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProject();
+      setCopyright();
+      initMenu();
+    });
+  </script>
+</body>
+</html>
