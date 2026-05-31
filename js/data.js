@@ -67,8 +67,8 @@ const portfolio = [
     location: "ЖК Легенда, Казань",
     duration: "5 дней",
     price: "85 000 ₽",
-    image: "assets/room1.jpeg",
-    images: ["assets/room1.jpeg", "assets/room2.jpeg", "assets/image-3252732.png"]
+    image: "assets/portfolio/jk-legenda/room1.jpeg",
+    images: ["assets/portfolio/jk-legenda/room1.jpeg", "assets/portfolio/jk-legenda/room2.jpeg", "assets/portfolio/jk-legenda/image-3252732.png"]
   },
   {
     id: 2,
@@ -80,8 +80,8 @@ const portfolio = [
     location: "ЖК Ричмонд, Казань",
     duration: "7 дней",
     price: "110 000 ₽",
-    image: "assets/room2.jpeg",
-    images: ["assets/room2.jpeg", "assets/image-3252730.png", "assets/image-3252729.png"]
+    image: "assets/portfolio/jk-richmond-1/room2.jpeg",
+    images: ["assets/portfolio/jk-richmond-1/room2.jpeg", "assets/portfolio/jk-richmond-1/image-3252730.png", "assets/portfolio/jk-richmond-1/image-3252729.png"]
   },
   {
     id: 3,
@@ -93,8 +93,8 @@ const portfolio = [
     location: "ЖК Ричмонд, Казань",
     duration: "4 дня",
     price: "65 000 ₽",
-    image: "assets/image-3252730.png",
-    images: ["assets/image-3252730.png", "assets/image-3252729.png", "assets/image-3252727.png"]
+    image: "assets/portfolio/jk-richmond-2/image-3252730.png",
+    images: ["assets/portfolio/jk-richmond-2/image-3252730.png", "assets/portfolio/jk-richmond-2/image-3252729.png", "assets/portfolio/jk-richmond-2/image-3252727.png"]
   },
   {
     id: 4,
@@ -106,8 +106,8 @@ const portfolio = [
     location: "ЖК Savin Premier, Казань",
     duration: "5 дней",
     price: "75 000 ₽",
-    image: "assets/image-3252729.png",
-    images: ["assets/image-3252729.png", "assets/image-3252727.png", "assets/image-3252732.png"]
+    image: "assets/portfolio/jk-savin/image-3252729.png",
+    images: ["assets/portfolio/jk-savin/image-3252729.png", "assets/portfolio/jk-savin/image-3252727.png", "assets/portfolio/jk-savin/image-3252732.png"]
   },
   {
     id: 5,
@@ -119,21 +119,21 @@ const portfolio = [
     location: "Казань, частный сектор",
     duration: "14 дней",
     price: "250 000 ₽",
-    image: "assets/image-3252727.png",
-    images: ["assets/image-3252727.png", "assets/room1.jpeg", "assets/room2.jpeg"]
+    image: "assets/portfolio/house/image-3252727.png",
+    images: ["assets/portfolio/house/image-3252727.png", "assets/portfolio/house/room1.jpeg", "assets/portfolio/house/room2.jpeg"]
   },
   {
-    id: 6,
-    title: "ул. Чатаева",
-    area: "78 м²",
-    year: "2025",
-    description: "Частичный электромонтаж",
-    fullDescription: "Частичный электромонтаж: замена проводки в санузле и кухне. Перенос розеток, установка вытяжного вентилятора с датчиком влажности.",
-    location: "ул. Чатаева, Казань",
-    duration: "3 дня",
-    price: "45 000 ₽",
-    image: "assets/image-3252732.png",
-    images: ["assets/image-3252732.png", "assets/image-3252730.png", "assets/image-3252729.png"]
+    id: 7,
+    title: "Проспект Победы 18",
+    area: "68.2 м²",
+    year: "2026",
+    description: "Черновая электрика под ключ",
+    fullDescription: "Черновая электрика под ключ в панельном доме. Штробление стен, монтаж кабеля, установка подрозетников, сборка и установка электрощита с автоматами и УЗО.",
+    location: "г. Казань, Проспект Победы 18",
+    duration: "5 дней",
+    price: "120 000 ₽",
+    image: "assets/portfolio/pobedy18/room1.jpeg",
+    images: ["assets/portfolio/pobedy18/room1.jpeg", "assets/portfolio/pobedy18/room2.jpeg", "assets/portfolio/pobedy18/room3.jpeg"]
   }
 ];
 
