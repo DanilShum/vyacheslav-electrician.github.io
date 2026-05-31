@@ -112,7 +112,7 @@ function renderPortfolio() {
 
 function setCopyright() {
   const year = new Date().getFullYear();
-  document.getElementById('copyright').textContent = `© ${year} Вячеслав Электрик. Все права защищены.`;
+  document.getElementById('copyright').textContent = `© ${year} Иванов Вячеслав Валерьевич. Все права защищены.`;
 }
 
 function initMenu() {
