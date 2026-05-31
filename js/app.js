@@ -21,6 +21,12 @@ function acceptPd() {
 
 function declinePd() {
   document.getElementById('pdModal').classList.remove('show');
+  document.getElementById('pdWarning').classList.add('show');
+}
+
+function closePdWarning() {
+  document.getElementById('pdWarning').classList.remove('show');
+  sessionStorage.setItem('pdShown', 'true');
 }
 
 function showCookieBanner() {
