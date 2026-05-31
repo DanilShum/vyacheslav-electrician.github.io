@@ -3,6 +3,41 @@ function scrollToContacts() {
   if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookieBanner').classList.remove('show');
+}
+
+function rejectCookies() {
+  localStorage.setItem('cookiesAccepted', 'rejected');
+  document.getElementById('cookieBanner').classList.remove('show');
+}
+
+function acceptPd() {
+  localStorage.setItem('pdConsent', 'true');
+  document.getElementById('pdModal').classList.remove('show');
+  sessionStorage.setItem('pdShown', 'true');
+}
+
+function declinePd() {
+  document.getElementById('pdModal').classList.remove('show');
+}
+
+function showCookieBanner() {
+  const accepted = localStorage.getItem('cookiesAccepted');
+  if (!accepted) {
+    document.getElementById('cookieBanner').classList.add('show');
+  }
+}
+
+function showPdModal() {
+  const shown = sessionStorage.getItem('pdShown');
+  const consented = localStorage.getItem('pdConsent');
+  if (!shown && !consented) {
+    document.getElementById('pdModal').classList.add('show');
+  }
+}
+
 function renderAdvantages() {
   const grid = document.getElementById('advantagesGrid');
   grid.innerHTML = advantages.map(item => `
@@ -94,6 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderPortfolio();
   setCopyright();
   initMenu();
+  showCookieBanner();
+  showPdModal();
 
   if (window.location.hash) {
     const el = document.querySelector(window.location.hash);

@@ -52,12 +52,13 @@
     <div class="footer-container">
       <div class="footer-main">
         <div class="footer-brand">
-          <span class="footer-logo">Вячеслав</span>
+          <span class="footer-logo">Иванов В. В.</span>
           <p class="footer-tagline">Электрика под ключ в Казани</p>
         </div>
         <div class="footer-contacts">
           <a href="tel:+79393868381" class="footer-phone">+7 939 386 83 81</a>
           <span class="footer-address">г. Казань, Проспект Победы</span>
+          <span class="footer-name">Иванов Вячеслав Валерьевич</span>
         </div>
       </div>
       <div class="footer-bottom">
@@ -70,7 +71,7 @@
   <script src="js/data.js"></script>
   <script>
     function setCopyright() {
-      document.getElementById('copyright').textContent = `© ${new Date().getFullYear()} Вячеслав. Все права защищены.`;
+      document.getElementById('copyright').textContent = `© ${new Date().getFullYear()} Иванов Вячеслав Валерьевич. Все права защищены.`;
     }
 
     function initMenu() {
@@ -153,7 +154,38 @@
       renderProject();
       setCopyright();
       initMenu();
+      showCookieBanner();
     });
+  </script>
+
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-container">
+      <p class="cookie-text">
+        Мы используем файлы cookies для улучшения работы сайта. 
+        <a href="privacy.html">Политика конфиденциальности</a>
+      </p>
+      <div class="cookie-buttons">
+        <button class="cookie-btn cookie-btn-decline" onclick="rejectCookies()">Отклонить</button>
+        <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Принять</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieBanner').classList.remove('show');
+    }
+    function rejectCookies() {
+      localStorage.setItem('cookiesAccepted', 'rejected');
+      document.getElementById('cookieBanner').classList.remove('show');
+    }
+    function showCookieBanner() {
+      const accepted = localStorage.getItem('cookiesAccepted');
+      if (!accepted) {
+        document.getElementById('cookieBanner').classList.add('show');
+      }
+    }
   </script>
 </body>
 </html>

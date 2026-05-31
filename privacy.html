@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Политика конфиденциальности — Вячеслав</title>
-  <meta name="description" content="Политика конфиденциальности компании Вячеслав. Как мы обрабатываем персональные данные.">
+  <title>Политика конфиденциальности — Иванов Вячеслав Валерьевич</title>
+  <meta name="description" content="Политика конфиденциальности Иванова Вячеслава Валерьевича. Как мы обрабатываем персональные данные.">
   <link rel="canonical" href="https://vyacheslav-electrician.github.io/privacy.html">
   
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vyacheslav-electrician.github.io/privacy.html">
-  <meta property="og:title" content="Политика конфиденциальности — Вячеслав">
-  <meta property="og:description" content="Политика конфиденциальности компании Вячеслав.">
+  <meta property="og:title" content="Политика конфиденциальности — Иванов Вячеслав Валерьевич">
+  <meta property="og:description" content="Политика конфиденциальности Иванова Вячеслава Валерьевича.">
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Политика конфиденциальности — Вячеслав">
+  <meta name="twitter:title" content="Политика конфиденциальности — Иванов Вячеслав Валерьевич">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="favicon.svg">
 </head>
@@ -49,7 +49,7 @@
 
       <div class="page-content">
         <h2>1. Общие положения</h2>
-        <p>Настоящая Политика конфиденциальности (далее — Политика) определяет порядок обработки и защиты персональных данных пользователей сайта Вячеслав.</p>
+        <p>Настоящая Политика конфиденциальности (далее — Политика) определяет порядок обработки и защиты персональных данных пользователей сайта физическим лицом Ивановым Вячеславом Валерьевичем.</p>
 
         <h2>2. Персональные данные</h2>
         <p>Мы собираем следующие персональные данные:</p>
@@ -94,12 +94,13 @@
     <div class="footer-container">
       <div class="footer-main">
         <div class="footer-brand">
-          <span class="footer-logo">Вячеслав</span>
+          <span class="footer-logo">Иванов В. В.</span>
           <p class="footer-tagline">Электрика под ключ в Казани</p>
         </div>
         <div class="footer-contacts">
           <a href="tel:+79393868381" class="footer-phone">+7 939 386 83 81</a>
           <span class="footer-address">г. Казань, Проспект Победы</span>
+          <span class="footer-name">Иванов Вячеслав Валерьевич</span>
         </div>
       </div>
       <div class="footer-bottom">
@@ -111,7 +112,7 @@
 
   <script>
     function setCopyright() {
-      document.getElementById('copyright').textContent = `© ${new Date().getFullYear()} Вячеслав. Все права защищены.`;
+      document.getElementById('copyright').textContent = `© ${new Date().getFullYear()} Иванов Вячеслав Валерьевич. Все права защищены.`;
     }
 
     function initMenu() {
@@ -126,7 +127,38 @@
     document.addEventListener('DOMContentLoaded', () => {
       setCopyright();
       initMenu();
+      showCookieBanner();
     });
+  </script>
+
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-container">
+      <p class="cookie-text">
+        Мы используем файлы cookies для улучшения работы сайта. 
+        <a href="privacy.html">Политика конфиденциальности</a>
+      </p>
+      <div class="cookie-buttons">
+        <button class="cookie-btn cookie-btn-decline" onclick="rejectCookies()">Отклонить</button>
+        <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Принять</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieBanner').classList.remove('show');
+    }
+    function rejectCookies() {
+      localStorage.setItem('cookiesAccepted', 'rejected');
+      document.getElementById('cookieBanner').classList.remove('show');
+    }
+    function showCookieBanner() {
+      const accepted = localStorage.getItem('cookiesAccepted');
+      if (!accepted) {
+        document.getElementById('cookieBanner').classList.add('show');
+      }
+    }
   </script>
 </body>
 </html>
